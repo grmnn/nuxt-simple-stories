@@ -1,0 +1,39 @@
+{
+	"extends": [
+		"@antfu"
+	],
+	"rules": {
+		"no-console": "off",
+		"curly": "off",
+		"tailwindcss/no-custom-classname": "off",
+		"vue/max-attributes-per-line": [
+			"error",
+			{
+				"singleline": {
+					"max": 1
+				},
+				"multiline": {
+					"max": 1
+				}
+			}
+		],
+		"vue/define-macros-order": "off",
+		"@typescript-eslint/no-unused-vars": "warn",
+		"@typescript-eslint/brace-style": [
+			"error",
+			"1tbs",
+			{
+				"allowSingleLine": true
+			}
+		],
+		"no-tabs": "off",
+		"@typescript-eslint/indent": [
+			"error",
+			"tab",
+			{
+				"SwitchCase": 1
+			}
+		],
+		"vue/no-extra-parens": "off"
+	}
+}
