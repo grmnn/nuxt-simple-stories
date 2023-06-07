@@ -1,15 +1,15 @@
 {
-  "name": "my-module",
-  "version": "1.0.0",
-  "description": "My new Nuxt module",
-  "repository": "your-org/my-module",
-  "license": "MIT",
+  "name": "nuxt-simple-stories",
   "type": "module",
+  "version": "0.0.1",
+  "description": "Simple module to work on components on a blank canvas.",
+  "license": "MIT",
+  "repository": "https://github.com/grmnn/nuxt-simple-stories",
   "exports": {
     ".": {
       "types": "./dist/types.d.ts",
-      "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs"
+      "require": "./dist/module.cjs",
+      "import": "./dist/module.mjs"
     }
   },
   "main": "./dist/module.cjs",
@@ -43,6 +43,7 @@
     "eslint": "^8.42.0",
     "nuxt": "^3.5.3",
     "tailwindcss": "^3.3.2",
+    "typescript": "5.0.4",
     "vitest": "^0.32.0"
   }
 }

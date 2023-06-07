@@ -3,7 +3,8 @@ import { addComponentsDir, addLayout, addTemplate, createResolver, defineNuxtMod
 
 export default defineNuxtModule({
 	meta: {
-		name: 'nuxt-story',
+		name: 'nuxt-simple-stories',
+		version: '0.0.1',
 	},
 	async setup(_options, nuxt) {
 		if (!nuxt.options.dev)
@@ -41,9 +42,9 @@ export default defineNuxtModule({
 		nuxt.hook('devtools:customTabs', (tabs: object[]) => {
 			tabs.push({
 				// unique identifier
-				name: 'nuxt-story',
+				name: 'nuxt-simple-stories',
 				// title to display in the tab
-				title: 'Story',
+				title: 'Simple Stories',
 				// any icon from Iconify, or a URL to an image
 				icon: 'carbon:apps',
 				// iframe view
