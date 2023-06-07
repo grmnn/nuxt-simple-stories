@@ -13,7 +13,7 @@ export default defineNuxtModule({
 
 		nuxt.options.css.push(resolver.resolve('./runtime/styles.css'))
 
-		const componentsDir = fileURLToPath(new URL('./components', import.meta.url))
+		const componentsDir = fileURLToPath(new URL('./runtime/components', import.meta.url))
 
 		await addComponentsDir({
 			path: resolver.resolve(componentsDir),
@@ -22,14 +22,14 @@ export default defineNuxtModule({
 			transpile: true,
 		})
 
-		const layoutsDir = fileURLToPath(new URL('./layouts', import.meta.url))
+		const layoutsDir = fileURLToPath(new URL('./runtime/layouts', import.meta.url))
 		const layoutTemplate = addTemplate({
 			src: resolver.resolve(layoutsDir, 'story-layout.vue'),
 			write: true,
 		})
 		addLayout(layoutTemplate, 'story-layout')
 
-		const pagesDir = fileURLToPath(new URL('./pages', import.meta.url))
+		const pagesDir = fileURLToPath(new URL('./runtime/pages', import.meta.url))
 		extendPages((pages) => {
 			pages.push({
 				name: 'Story',
