@@ -1,8 +1,10 @@
-<script setup lang="ts">
-</script>
-
 <template>
   <Variant title="Base Button">
-    <button>heello</button>
+    <BaseButton variant="primary">
+      Primary Button
+    </BaseButton>
+    <BaseButton variant="secondary">
+      Secondary Buttton
+    </BaseButton>
   </Variant>
 </template>

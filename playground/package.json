@@ -8,6 +8,8 @@
     "generate": "nuxi generate"
   },
   "devDependencies": {
-    "nuxt": "latest"
+    "@nuxtjs/tailwindcss": "^6.7.0",
+    "nuxt": "latest",
+    "@antfu/eslint-config": "^0.39.5"
   }
 }

@@ -26,6 +26,3 @@
     </form>
   </Variant>
 </template>
-
-<style scoped>
-</style>
