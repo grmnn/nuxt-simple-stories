@@ -103,6 +103,10 @@ onMounted(() => {
 onUnmounted(() => {
 	document.documentElement.classList.remove('nx-story')
 })
+
+const computedActiveFile = computed(() => {
+	return route.query.component as string || null
+})
 </script>
 
 <template>
@@ -112,9 +116,9 @@ onUnmounted(() => {
         class="fixed z-50 h-full min-w-[320px] border-r border-gray-2 bg-black pt-12 transition lg:relative lg:inset-y-auto lg:left-auto"
         :class="computedMenuClass"
       >
-        <ul>
+        <ul v-if="computedActiveFile">
           <TreeItem
-            :active-file="(route.query.component as string)"
+            :active-file="computedActiveFile"
             :item="storiesTree"
             :open="openTree"
             :level="0"
