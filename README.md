@@ -1,4 +1,4 @@
-# Nuxt Simple Stories
+# Nuxt Simple Stories 🚧 WIP
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -18,21 +18,15 @@ Simple stories to work on components in isolation.
 ```bash
 # Using pnpm
 pnpm add -D nuxt-simple-stories
-
-# Using yarn
-yarn add --dev nuxt-simple-stories
-
-# Using npm
-npm install --save-dev nuxt-simple-stories
 ```
 
 2. Add `nuxt-simple-stories` to the `modules` section of `nuxt.config.ts`
 
 ```js
 export default defineNuxtConfig({
-	modules: [
-		'nuxt-simple-stories'
-	]
+ modules: [
+  'nuxt-simple-stories'
+ ]
 })
 ```
 
@@ -42,26 +36,26 @@ That's it! You can now use Nuxt Simple Stories in your Nuxt app ✨
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Generate type stubs
-npm run dev:prepare
+pnpm dev:prepare
 
 # Develop with the playground
-npm run dev
+pnpm dev
 
 # Build the playground
-npm run dev:build
+pnpm dev:build
 
 # Run ESLint
-npm run lint
+pnpm lint
 
 # Run Vitest
-npm run test
-npm run test:watch
+pnpm test
+pnpm test:watch
 
 # Release new version
-npm run release
+pnpm release
 ```
 
 <!-- Badges -->
@@ -76,3 +70,17 @@ npm run release
 
 [nuxt-src]: https://img.shields.io/badge/Nuxt-18181B?logo=nuxt.js
 [nuxt-href]: https://nuxt.com
+
+## Todos
+
+- [ ] Config
+  - [ ] `storiesDir`
+  - [ ] `storiesExtensions`
+
+- [ ] UI
+  - [ ] Basic styles for built in components (story, variant)
+  - [ ] Light/Dark mode
+  - [ ] ? Customizable
+
+- [ ] Examples
+- [ ] "Docs"
