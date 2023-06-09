@@ -1,62 +1,74 @@
-# Nuxt Simple Stories 🚧 WIP
+# Nuxt Simple Stories
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
-Simple stories to work on components in isolation.
+Simple stories for [Nuxt](https://nuxt.com/). Work on your components in isolation with zero configuration. Also enabled in your [Nuxt DevTools](https://github.com/nuxt/devtools)
 
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
-<!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/nuxt-simple-stories?file=playground%2Fapp.vue) -->
-<!-- - [📖 &nbsp;Documentation](https://example.com) -->
+- [📖 &nbsp;Example](https://nuxt-simple-stories.vercel.app/)
 
-## Quick Setup
+## Getting Started
 
-1. Add `nuxt-simple-stories` dependency to your project
+### Installation
 
 ```bash
-# Using pnpm
 pnpm add -D nuxt-simple-stories
 ```
 
-2. Add `nuxt-simple-stories` to the `modules` section of `nuxt.config.ts`
-
 ```js
 export default defineNuxtConfig({
-	modules: [
-		'nuxt-simple-stories'
-	]
+  modules: [
+    'nuxt-simple-stories'
+  ],
+  // optional configuration
+  simpleStories: {
+    // Set to false to deploy stories to production. (default: true)
+    devOnly: true,
+  }
 })
 ```
 
-That's it! You can now use Nuxt Simple Stories in your Nuxt app ✨
+<!-- For all options available, please refer to TSDocs in your IDE. -->
 
-## Development
+### Usage
 
-```bash
-# Install dependencies
-pnpm install
+Create a `stories` folder in the root of your Nuxt project. Create a `*.story.vue` file for each story you want to create. The name of the file will be used as the name of the story. Directories will be used to show a tree view in the UI.
 
-# Generate type stubs
-pnpm dev:prepare
+```vue
+<script setup lang="ts">
+// this is just another Nuxt 3 component, so you can use all the same features like auto imports, Pinia store, etc.
+</script>
 
-# Develop with the playground
-pnpm dev
-
-# Build the playground
-pnpm dev:build
-
-# Run ESLint
-pnpm lint
-
-# Run Vitest
-pnpm test
-pnpm test:watch
-
-# Release new version
-pnpm release
+<template>
+  <Variant title="Base Button">
+    <BaseButton variant="primary">
+      Primary Button
+    </BaseButton>
+    <BaseButton variant="secondary">
+      Secondary Buttton
+    </BaseButton>
+  </Variant>
+  <Variant title="Disabled buttons">
+    <BaseButton
+      variant="primary"
+      disabled
+    >
+      Primary Button
+    </BaseButton>
+    <BaseButton
+      variant="secondary"
+      disabled
+    >
+      Secondary Buttton
+    </BaseButton>
+  </Variant>
+</template>
 ```
+
+The `Variant` component can be used to group for example different states of a component. The `title` prop will be used as the name of the variant.
 
 <!-- Badges -->
 [npm-version-src]: https://img.shields.io/npm/v/nuxt-simple-stories/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
@@ -70,17 +82,3 @@ pnpm release
 
 [nuxt-src]: https://img.shields.io/badge/Nuxt-18181B?logo=nuxt.js
 [nuxt-href]: https://nuxt.com
-
-## Todos
-
-- [ ] Config
-  - [ ] `storiesDir`
-  - [ ] `storiesExtensions`
-
-- [ ] UI
-  - [ ] Basic styles for built in components (story, variant)
-  - [ ] Light/Dark mode
-  - [ ] ? Customizable
-
-- [ ] Examples
-- [ ] "Docs"
