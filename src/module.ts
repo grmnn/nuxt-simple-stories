@@ -2,10 +2,15 @@ import { fileURLToPath } from 'node:url'
 import { addComponentsDir, addLayout, addTemplate, createResolver, defineNuxtModule, extendPages } from '@nuxt/kit'
 
 export interface ModuleOptions {
+	/**
+   * Set to false to deploy stories to production.
+   *
+   * @default true
+   */
 	devOnly: boolean
 }
 
-export default defineNuxtModule({
+export default defineNuxtModule<ModuleOptions>({
 	meta: {
 		name: 'nuxt-simple-stories',
 		version: '0.0.1',
@@ -15,7 +20,7 @@ export default defineNuxtModule({
 		devOnly: true,
 	},
 	async setup(options, nuxt) {
-		if (options.devOnly)
+		if (options.devOnly && !nuxt.options.dev)
 			return
 		const resolver = createResolver(import.meta.url)
 
