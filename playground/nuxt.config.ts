@@ -5,6 +5,9 @@ export default defineNuxtConfig({
 	modules: [
 		'../src/module',
 	],
+	simpleStories: {
+		devOnly: false,
+	},
 	postcss: {
 		plugins: {
 			tailwindcss: {},
