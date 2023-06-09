@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-
 .nx-story html,
 .nx-story body {
 	width: 100%;
