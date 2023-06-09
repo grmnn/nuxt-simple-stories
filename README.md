@@ -24,9 +24,9 @@ pnpm add -D nuxt-simple-stories
 
 ```js
 export default defineNuxtConfig({
- modules: [
-  'nuxt-simple-stories'
- ]
+	modules: [
+		'nuxt-simple-stories'
+	]
 })
 ```
 
