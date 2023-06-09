@@ -1,6 +1,34 @@
 # Changelog
 
 
+## v0.0.4
+
+[compare changes](https://github.com/grmnn/nuxt-simple-stories/compare/v0.0.3...v0.0.4)
+
+
+### 🚀 Enhancements
+
+  - Add module config to set deployment or not ([1cbdc2a](https://github.com/grmnn/nuxt-simple-stories/commit/1cbdc2a))
+
+### 🩹 Fixes
+
+  - Check for route param before showing tree component ([d94e5a1](https://github.com/grmnn/nuxt-simple-stories/commit/d94e5a1))
+  - Test playground deployment ([23ae8f3](https://github.com/grmnn/nuxt-simple-stories/commit/23ae8f3))
+
+### 📖 Documentation
+
+  - Add todos ([ad5c17c](https://github.com/grmnn/nuxt-simple-stories/commit/ad5c17c))
+
+### 🏡 Chore
+
+  - Add example component with tailwind, clean up things, navigate to story ([b8b0b37](https://github.com/grmnn/nuxt-simple-stories/commit/b8b0b37))
+  - Add linting/formatting settings ([f0b4c73](https://github.com/grmnn/nuxt-simple-stories/commit/f0b4c73))
+  - Linting ([0529f2e](https://github.com/grmnn/nuxt-simple-stories/commit/0529f2e))
+
+### ❤️  Contributors
+
+- Grmnn <grmnn@pm.me>
+
 ## v0.0.3
 
 [compare changes](https://github.com/grmnn/nuxt-simple-stories/compare/v0.0.2...v0.0.3)

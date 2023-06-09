@@ -1,7 +1,7 @@
 {
   "name": "nuxt-simple-stories",
   "type": "module",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Simple module to work on components on a blank canvas.",
   "license": "MIT",
   "repository": "https://github.com/grmnn/nuxt-simple-stories",
@@ -22,7 +22,6 @@
     "dev": "concurrently --kill-others \"pnpm run dev:tailwind\" \"pnpm run dev:playground\"",
     "dev:tailwind": "tailwindcss -i ./src/tailwind.css -o ./src/runtime/styles.css --watch",
     "dev:playground": "nuxi dev playground",
-
     "dev:build": "nuxi build playground",
     "dev:generate": "nuxi generate playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
