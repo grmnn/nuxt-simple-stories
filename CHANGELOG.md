@@ -1,6 +1,34 @@
 # Changelog
 
 
+## v0.0.5
+
+[compare changes](https://github.com/grmnn/nuxt-simple-stories/compare/v0.0.4...v0.0.5)
+
+
+### 🩹 Fixes
+
+  - Remove eslint rule for indents in markdown ([c961722](https://github.com/grmnn/nuxt-simple-stories/commit/c961722))
+  - Use devOnly option correct and add TSDocs ([54d07e5](https://github.com/grmnn/nuxt-simple-stories/commit/54d07e5))
+  - Depending on MODULE_ENV generate playground css ([e879534](https://github.com/grmnn/nuxt-simple-stories/commit/e879534))
+
+### 💅 Refactors
+
+  - Figure out how to handle tailwind for module and playground ([46e0699](https://github.com/grmnn/nuxt-simple-stories/commit/46e0699))
+
+### 📖 Documentation
+
+  - Clean up readme, add basic docs ([057a760](https://github.com/grmnn/nuxt-simple-stories/commit/057a760))
+
+### 🏡 Chore
+
+  - Silence vercel ([08086db](https://github.com/grmnn/nuxt-simple-stories/commit/08086db))
+  - Add eslint settings and lint project ([990d746](https://github.com/grmnn/nuxt-simple-stories/commit/990d746))
+
+### ❤️  Contributors
+
+- Grmnn <grmnn@pm.me>
+
 ## v0.0.4
 
 [compare changes](https://github.com/grmnn/nuxt-simple-stories/compare/v0.0.3...v0.0.4)
