@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.0.9
+
+[compare changes](https://github.com/grmnn/nuxt-simple-stories/compare/v0.0.8...v0.0.9)
+
+
+### 🩹 Fixes
+
+  - Remove eol-last rule ([dfbba51](https://github.com/grmnn/nuxt-simple-stories/commit/dfbba51))
+
+### ❤️  Contributors
+
+- Grmnn <grmnn@pm.me>
+
 ## v0.0.8
 
 [compare changes](https://github.com/grmnn/nuxt-simple-stories/compare/v0.0.7...v0.0.8)
