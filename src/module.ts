@@ -24,7 +24,7 @@ export default defineNuxtModule<ModuleOptions>({
 			return
 		const resolver = createResolver(import.meta.url)
 
-		if (nuxt.options.dev || process.env.MODULE_ENV === 'development') {
+		if (nuxt.options.dev || process.env.NUXT_MODULE_ENV === 'development') {
 			nuxt.options.css.push(resolver.resolve('./dev.css'))
 		} else {
 			nuxt.options.css.push(resolver.resolve('./runtime/prod.css'))

@@ -6,7 +6,7 @@ const content = [
 	'./src/runtime/pages/*.vue',
 ]
 
-if (process.env.MODULE_ENV === 'development') {
+if (process.env.NUXT_MODULE_ENV === 'development') {
 	content.push('./playground/components/**/*.vue')
 	content.push('./playground/layouts/**/*.vue')
 	content.push('./playground/pages/**/*.vue')

@@ -19,13 +19,13 @@
   ],
   "scripts": {
     "lint": "eslint .",
-    "tailwind": "tailwindcss -i ./src/tailwind.css -o ./src/dev.css",
     "prepack": "tailwindcss -i ./src/tailwind.css -o ./src/runtime/prod.css && nuxt-module-build",
+    "release": "pnpm run lint && pnpm run prepack && changelogen --release && pnpm publish && git push --follow-tags",
+    "dev:tailwind": "NUXT_MODULE_ENV=development tailwindcss -i ./src/tailwind.css -o ./src/dev.css",
     "dev:serve": "nuxi preview playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
-    "dev:generate": "MODULE_ENV=development pnpm run tailwind && nuxi generate playground",
-    "dev": "MODULE_ENV=development concurrently --kill-others \"pnpm run tailwind --watch\" \"nuxi dev playground\"",
-    "release": "pnpm run lint && pnpm run prepack && changelogen --release && pnpm publish && git push --follow-tags"
+    "dev:generate": "pnpm run dev:tailwind && NUXT_MODULE_ENV=development nuxi generate playground",
+    "dev": "concurrently --kill-others \"pnpm run dev:tailwind --watch\" \"NUXT_MODULE_ENV=development nuxi dev playground\""
   },
   "dependencies": {
     "@nuxt/kit": "^3.5.3"
