@@ -12,8 +12,6 @@ if (process.env.NUXT_MODULE_ENV === 'development') {
 	content.push('./playground/pages/**/*.vue')
 }
 
-console.log('content', content)
-
 module.exports = {
 	prefix: 'nxs-',
 	content,
