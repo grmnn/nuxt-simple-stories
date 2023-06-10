@@ -24,7 +24,7 @@ export default defineNuxtModule<ModuleOptions>({
 			return
 		const resolver = createResolver(import.meta.url)
 
-		nuxt.options.css.push(resolver.resolve('./runtime/styles.css'))
+		nuxt.options.css.push(resolver.resolve('./runtime/nxs-styles.css'))
 
 		const componentsDir = fileURLToPath(new URL('./runtime/components', import.meta.url))
 

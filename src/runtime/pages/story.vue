@@ -13,7 +13,7 @@ const showMenu = ref(false)
 const computedMenuClass = computed(() => {
 	return {
 		'translate-x-0': showMenu.value,
-		'-translate-x-full lg:translate-x-0': !showMenu.value,
+		'-translate-x-full lg:nxs-translate-x-0': !showMenu.value,
 	}
 })
 
@@ -89,7 +89,7 @@ const openTree = ref(true)
 
 onMounted(() => {
 	console.log(document.documentElement.classList)
-	document.documentElement.classList.add('nx-story')
+	document.documentElement.classList.add('nxs')
 	const story = stories.value.find(story => story.name === route.query.component)
 
 	if (story) {
@@ -101,7 +101,7 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-	document.documentElement.classList.remove('nx-story')
+	document.documentElement.classList.remove('nxs')
 })
 
 const computedActiveFile = computed(() => {
@@ -110,10 +110,10 @@ const computedActiveFile = computed(() => {
 </script>
 
 <template>
-  <div class="absolute flex h-full w-full flex-col overflow-hidden">
-    <div class="relative flex h-full w-full shrink-0 overflow-hidden">
+  <div class="nxs-absolute nxs-flex nxs-h-full nxs-w-full nxs-flex-col nxs-overflow-hidden">
+    <div class="nxs-relative nxs-flex nxs-h-full nxs-w-full nxs-shrink-0 nxs-overflow-hidden">
       <aside
-        class="fixed z-50 h-full min-w-[320px] border-r border-gray-2 bg-black pt-12 transition lg:relative lg:inset-y-auto lg:left-auto"
+        class="nxs-fixed nxs-z-50 nxs-h-full nxs-min-w-[320px] nxs-border-r nxs-border-neutral-600 nxs-bg-black nxs-pt-12 nxs-transition lg:nxs-relative lg:nxs-inset-y-auto lg:nxs-left-auto"
         :class="computedMenuClass"
       >
         <ul v-if="computedActiveFile">
@@ -127,10 +127,10 @@ const computedActiveFile = computed(() => {
         </ul>
       </aside>
 
-      <main class="relative flex h-full grow basis-0 flex-col overflow-y-auto px-4 pt-8 lg:px-12 lg:pt-12">
+      <main class="nxs-relative nxs-flex nxs-h-full nxs-grow nxs-basis-0 nxs-flex-col nxs-overflow-y-auto nxs-px-4 nxs-pt-8 lg:nxs-px-12 lg:nxs-pt-12">
         <h1
           v-if="selectedStory"
-          class="mb-12 text-4xl font-semibold text-white"
+          class="nxs-mb-12 nxs-text-4xl nxs-font-semibold nxs-text-white"
         >
           {{ selectedStory.name }}
         </h1>
@@ -140,7 +140,7 @@ const computedActiveFile = computed(() => {
         >
           <div
             v-if="computedStoryComponent"
-            class="space-y-4 lg:space-y-16"
+            class="nxs:space-y-4 lg:nxs-space-y-16"
           >
             <component :is="computedStoryComponent" />
           </div>
@@ -148,7 +148,7 @@ const computedActiveFile = computed(() => {
       </main>
     </div>
     <button
-      class="fixed bottom-6 right-6 z-10 flex h-10 w-10 items-center justify-center rounded border-2 border-black bg-white text-xl text-black lg:hidden"
+      class="nxs-fixed nxs-bottom-6 nxs-right-6 nxs-z-10 nxs-flex nxs-h-10 nxs-w-10 nxs-items-center nxs-justify-center nxs-rounded nxs-border-2 nxs-border-black nxs-bg-white nxs-text-xl nxs-text-black lg:nxs-hidden"
       @click="showMenu = !showMenu"
     >
       O

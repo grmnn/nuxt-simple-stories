@@ -1,17 +1,11 @@
 export default defineNuxtConfig({
 	css: [
-		'/assets/tailwind.css',
+		'~/assets/playground.css',
 	],
 	modules: [
 		'../src/module',
 	],
 	simpleStories: {
 		devOnly: false,
-	},
-	postcss: {
-		plugins: {
-			tailwindcss: {},
-			autoprefixer: {},
-		},
 	},
 })

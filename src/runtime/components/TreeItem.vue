@@ -20,11 +20,11 @@ const isFolder = computed(() => {
 })
 
 const computedSpacingStep = computed(() => {
-	const spacing = ['pl-0', 'pl-4', 'pl-10', 'pl-16'][props.level]
+	const spacing = ['nxs-pl-0', 'nxs-pl-4', 'nxs-pl-10', 'nxs-pl-16'][props.level]
 
 	return {
 		[spacing]: true,
-		'bg-gray5': props.activeFile === props.item.name,
+		'nxs-bg-neutral-800': props.activeFile === props.item.name,
 	}
 })
 
@@ -46,14 +46,14 @@ function onSelectStory(story: IStory) {
     <div
       v-if="item.name"
       :class="computedSpacingStep"
-      class="flex cursor-pointer select-none items-center gap-1 py-1.5 hover:bg-gray-4"
+      class="nxs-flex nxs-cursor-pointer nxs-select-none nxs-items-center nxs-gap-1 nxs-py-1.5 hover:nxs-bg-neutral-600"
       @click="toggle"
     >
       <TreeItemIcon
         :is-folder="isFolder"
         :is-open="isOpen"
       />
-      <span class="ml-1"> {{ item.name }}</span>
+      <span class="nxs-ml-1"> {{ item.name }}</span>
     </div>
     <ul
       v-show="isOpen"
