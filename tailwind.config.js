@@ -6,7 +6,7 @@ const content = [
 	'./src/runtime/pages/*.vue',
 ]
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.MODULE_ENV === 'development') {
 	content.push('./playground/components/**/*.vue')
 	content.push('./playground/layouts/**/*.vue')
 	content.push('./playground/pages/**/*.vue')

@@ -19,11 +19,12 @@
   ],
   "scripts": {
     "lint": "eslint .",
-    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
     "tailwind": "tailwindcss -i ./src/tailwind.css -o ./src/runtime/nxs-styles.css",
     "prepack": "pnpm run tailwind && nuxt-module-build",
-    "dev": "NODE_ENV=development concurrently --kill-others \"pnpm run tailwind --watch\" \"nuxi dev playground\"",
-    "generate-playground": "nuxi generate playground",
+    "dev:serve": "nuxi preview playground",
+    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
+    "dev:generate": "MODULE_ENV=development pnpm run tailwind && nuxi generate playground",
+    "dev": "MODULE_ENV=development concurrently --kill-others \"pnpm run tailwind --watch\" \"nuxi dev playground\"",
     "release": "pnpm run lint && pnpm run prepack && changelogen --release && pnpm publish && git push --follow-tags"
   },
   "dependencies": {
