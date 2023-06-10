@@ -1,6 +1,20 @@
 # Changelog
 
 
+## v0.0.7
+
+[compare changes](https://github.com/grmnn/nuxt-simple-stories/compare/v0.0.6...v0.0.7)
+
+
+### 🩹 Fixes
+
+  - Only check for NUXT_MODULE_ENV ([4e2742b](https://github.com/grmnn/nuxt-simple-stories/commit/4e2742b))
+  - Try to fix changelogen wrong formatting ([c42b05c](https://github.com/grmnn/nuxt-simple-stories/commit/c42b05c))
+
+### ❤️  Contributors
+
+- Grmnn <grmnn@pm.me>
+
 ## v0.0.6
 
 [compare changes](https://github.com/grmnn/nuxt-simple-stories/compare/v0.0.5...v0.0.6)
