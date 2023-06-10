@@ -20,7 +20,7 @@
   "scripts": {
     "lint": "eslint .",
     "prepack": "tailwindcss -i ./src/tailwind.css -o ./src/runtime/prod.css && nuxt-module-build",
-    "release": "pnpm run lint && pnpm run prepack && changelogen --release && pnpm publish && git push --follow-tags",
+    "release": "pnpm run lint && pnpm run prepack && changelogen --release && pnpm run lint --fix && pnpm publish && git push --follow-tags",
     "dev:tailwind": "NUXT_MODULE_ENV=development tailwindcss -i ./src/tailwind.css -o ./src/dev.css",
     "dev:serve": "nuxi preview playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
