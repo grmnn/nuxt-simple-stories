@@ -19,8 +19,8 @@
   ],
   "scripts": {
     "lint": "eslint .",
-    "tailwind": "tailwindcss -i ./src/tailwind.css -o ./src/runtime/nxs-styles.css",
-    "prepack": "pnpm run tailwind && nuxt-module-build",
+    "tailwind": "tailwindcss -i ./src/tailwind.css -o ./src/dev.css",
+    "prepack": "tailwindcss -i ./src/tailwind.css -o ./src/runtime/prod.css && nuxt-module-build",
     "dev:serve": "nuxi preview playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
     "dev:generate": "MODULE_ENV=development pnpm run tailwind && nuxi generate playground",
