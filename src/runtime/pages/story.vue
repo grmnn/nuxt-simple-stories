@@ -1,26 +1,21 @@
 <script setup lang="ts">
-import type { Component } from '@nuxt/schema'
-
-import type { IStory, ITreeItem } from '../types'
+import type { IStory, ITreeItem } from '../../types'
 import { computed, defineAsyncComponent, definePageMeta, onMounted, onUnmounted, ref, useRoute, useRouter } from '#imports'
 
 definePageMeta({
 	layout: 'story-layout',
 })
 
-const showMenu = ref(false)
-
-const computedMenuClass = computed(() => {
-	return {
-		'translate-x-0': showMenu.value,
-		'-translate-x-full lg:nxs-translate-x-0': !showMenu.value,
-	}
-})
-
-const storyModules = await import.meta.glob('/stories/**/*.story.vue') as Record<string, () => Promise<Component>>
+const storyModules = await import.meta.glob('/stories/**/*.story.vue') as Record<string, () => Promise<{ default: any }>>
 
 const storiesTree = ref<ITreeItem | {}>({})
 const stories = ref<IStory[]>([])
+const selectedStory = ref<IStory>()
+const router = useRouter()
+const route = useRoute()
+
+const storyEl = ref<HTMLDivElement>()
+const minWidth = ref(280)
 
 for (const storyPath in storyModules) {
 	const storyPathParts = storyPath.split('/').splice(2)
@@ -63,32 +58,27 @@ for (const storyPath in storyModules) {
 
 	stories.value.push({
 		name: storyTitle,
-		component: storyPath,
+		path: storyPath,
 	})
 }
-const selectedStory = ref<IStory>()
 
 const computedStoryComponent = computed(() => {
-	if (!selectedStory.value) {
+	if (!selectedStory.value?.path) {
 		return
 	}
-	const storyComponent = defineAsyncComponent(storyModules[selectedStory.value.component])
+	const storyComponent = defineAsyncComponent(storyModules[selectedStory.value.path])
+
 	return storyComponent
 })
 
-const router = useRouter()
-const route = useRoute()
-
-function setComponent(story: IStory) {
+async function setComponent(story: IStory) {
 	selectedStory.value = story
 	router.push(`?component=${story.name}`)
-	showMenu.value = false
 }
 
 const openTree = ref(true)
 
 onMounted(() => {
-	console.log(document.documentElement.classList)
 	document.documentElement.classList.add('nxs')
 	const story = stories.value.find(story => story.name === route.query.component)
 
@@ -107,51 +97,66 @@ onUnmounted(() => {
 const computedActiveFile = computed(() => {
 	return route.query.component as string || null
 })
+
+function onMousedown() {
+	document.addEventListener('mousemove', resize, false)
+	document.addEventListener('mouseup', () => {
+		document.removeEventListener('mousemove', resize, false)
+	}, false)
+}
+
+function resize(e: MouseEvent) {
+	if (!storyEl.value)
+		return
+
+	const sidebarWidth = e.clientX
+
+	if (sidebarWidth < minWidth.value)
+		return
+
+	storyEl.value.style.gridTemplateColumns = `${sidebarWidth}px 1px auto`
+}
 </script>
 
 <template>
-  <div class="nxs-absolute nxs-flex nxs-h-full nxs-w-full nxs-flex-col nxs-overflow-hidden">
-    <div class="nxs-relative nxs-flex nxs-h-full nxs-w-full nxs-shrink-0 nxs-overflow-hidden">
-      <aside
-        class="nxs-fixed nxs-z-50 nxs-h-full nxs-min-w-[320px] nxs-border-r nxs-border-neutral-600 nxs-bg-black nxs-pt-12 nxs-transition lg:nxs-relative lg:nxs-inset-y-auto lg:nxs-left-auto"
-        :class="computedMenuClass"
-      >
-        <ul v-if="computedActiveFile">
-          <TreeItem
-            :active-file="computedActiveFile"
-            :item="storiesTree"
-            :open="openTree"
-            :level="0"
-            @select-file="setComponent"
-          />
-        </ul>
-      </aside>
-
-      <main class="nxs-relative nxs-flex nxs-h-full nxs-grow nxs-basis-0 nxs-flex-col nxs-overflow-y-auto nxs-px-4 nxs-pt-8 lg:nxs-px-12 lg:nxs-pt-12">
-        <h1
-          v-if="selectedStory"
-          class="nxs-mb-12 nxs-text-4xl nxs-font-semibold nxs-text-white"
-        >
-          {{ selectedStory.name }}
-        </h1>
-        <Transition
-          mode="out-in"
-          name="fade"
-        >
-          <div
-            v-if="computedStoryComponent"
-            class="nxs:space-y-4 lg:nxs-space-y-16"
-          >
-            <component :is="computedStoryComponent" />
-          </div>
-        </Transition>
-      </main>
-    </div>
-    <button
-      class="nxs-fixed nxs-bottom-6 nxs-right-6 nxs-z-10 nxs-flex nxs-h-10 nxs-w-10 nxs-items-center nxs-justify-center nxs-rounded nxs-border-2 nxs-border-black nxs-bg-white nxs-text-xl nxs-text-black lg:nxs-hidden"
-      @click="showMenu = !showMenu"
+  <div
+    ref="storyEl"
+    class="nxs-absolute nxs-inset-0 nxs-grid nxs-grid-rows-[1fr] nxs-overflow-hidden"
+    :style="{
+      gridTemplateColumns: `${minWidth}px 1px auto`,
+    }"
+  >
+    <aside
+      class="nxs-h-full nxs-border-r nxs-border-neutral-600 nxs-bg-black nxs-pt-12 nxs-transition lg:nxs-relative lg:nxs-inset-y-auto lg:nxs-left-auto nxs-flex nxs-flex-col"
     >
-      O
-    </button>
+      <ul v-if="computedActiveFile">
+        <TreeItem
+          :active-file="computedActiveFile"
+          :item="storiesTree"
+          :open="openTree"
+          :level="0"
+          @select-file="setComponent"
+        />
+      </ul>
+    </aside>
+    <div
+      class="group nxs-relative nxs-inset-y-0 nxs-left-[-8px] nxs-z-20 nxs-w-4 nxs-cursor-col-resize"
+      @mousedown="onMousedown"
+    >
+      <div class="mx-auto nxs-h-full nxs-w-[1px] nxs-transition nxs-duration-500 nxs-ease-out group-hover:nxs-bg-primary" />
+    </div>
+    <main class="nxs-relative nxs-flex nxs-h-full nxs-flex-col nxs-overflow-y-auto nxs-px-4 nxs-pt-8 lg:nxs-px-12 lg:nxs-pt-12">
+      <Transition
+        mode="out-in"
+        name="fade"
+      >
+        <div
+          v-if="computedStoryComponent"
+          class="nxs:space-y-4 lg:nxs-space-y-16"
+        >
+          <Component :is="computedStoryComponent" />
+        </div>
+      </Transition>
+    </main>
   </div>
 </template>

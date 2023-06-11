@@ -1,6 +1,6 @@
 export interface IStory {
 	name: string
-	component: string
+	path: string
 }
 
 export interface ITreeItem {
