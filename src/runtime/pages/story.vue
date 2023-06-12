@@ -42,7 +42,7 @@ for (const storyPath in storyModules) {
 		} else if (!isFolder) {
 			const storyEntr = {
 				name: storyTitle,
-				component: storyPath,
+				path: storyPath,
 			}
 
 			if (!currentTree.children) {
