@@ -37,8 +37,8 @@ function setSelectedStory(story: IStory) {
 }
 
 function setSelectedVariant(story: IStory) {
-	selectedStory.value = story
 	router.push(`?component=${story.name}&variant=${story.variantName}`)
+	selectedStory.value = story
 }
 
 const openTree = ref(true)
