@@ -1,6 +1,34 @@
 # Changelog
 
 
+## v0.0.10
+
+[compare changes](https://github.com/grmnn/nuxt-simple-stories/compare/v0.0.9...v0.0.10)
+
+
+### 🚀 Enhancements
+
+  - Variants ([d8d8d19](https://github.com/grmnn/nuxt-simple-stories/commit/d8d8d19))
+
+### 🩹 Fixes
+
+  - Change component to path as prop name ([7bd503b](https://github.com/grmnn/nuxt-simple-stories/commit/7bd503b))
+  - Variantss ([b0e7d31](https://github.com/grmnn/nuxt-simple-stories/commit/b0e7d31))
+  - Variants again ([977d1ee](https://github.com/grmnn/nuxt-simple-stories/commit/977d1ee))
+  - V.a.r.i.a.n.t.s ([b6d58c9](https://github.com/grmnn/nuxt-simple-stories/commit/b6d58c9))
+
+### 💅 Refactors
+
+  - Clean up story.vue page ([21cc64c](https://github.com/grmnn/nuxt-simple-stories/commit/21cc64c))
+
+### 🏡 Chore
+
+  - Remove console.log ([56e11f9](https://github.com/grmnn/nuxt-simple-stories/commit/56e11f9))
+
+### ❤️  Contributors
+
+- Grmnn <grmnn@pm.me>
+
 ## v0.0.9
 
 [compare changes](https://github.com/grmnn/nuxt-simple-stories/compare/v0.0.8...v0.0.9)
