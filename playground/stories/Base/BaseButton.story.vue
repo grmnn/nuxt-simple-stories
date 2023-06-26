@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { ref } from '#imports'
 
-const msg = ref('hello')
 </script>
 
 <template>
@@ -12,7 +10,7 @@ const msg = ref('hello')
   </Variant>
   <Variant title="Secondary Button">
     <BaseButton variant="secondary">
-      {{ msg }}
+      Secondary Button
     </BaseButton>
   </Variant>
 </template>
