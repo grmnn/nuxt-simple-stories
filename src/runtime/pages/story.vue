@@ -1,93 +1,66 @@
 <script setup lang="ts">
-import type { IStory, ITreeItem } from '../../types'
-import { computed, defineAsyncComponent, definePageMeta, onMounted, onUnmounted, ref, useRoute, useRouter } from '#imports'
+import {
+	computed,
+	definePageMeta,
+	onMounted,
+	onUnmounted,
+	ref,
+	shallowRef,
+	useRoute,
+	useRouter,
+	useStories,
+} from '#imports'
 
 definePageMeta({
 	layout: 'story-layout',
 })
 
-const storyModules = await import.meta.glob('/stories/**/*.story.vue') as Record<string, () => Promise<{ default: any }>>
-
-const storiesTree = ref<ITreeItem | {}>({})
-const stories = ref<IStory[]>([])
-const selectedStory = ref<IStory>()
+const { storiesTree, stories } = await useStories()
+const selectedStory = shallowRef<IStory | null>(null)
 const router = useRouter()
 const route = useRoute()
 
 const storyEl = ref<HTMLDivElement>()
 const minWidth = ref(280)
 
-for (const storyPath in storyModules) {
-	const storyPathParts = storyPath.split('/').splice(2)
-	const storyTitle = storyPathParts.slice(-1)[0].split('.')[0]
-
-	let currentTree = storiesTree.value as ITreeItem
-	for (let i = 0; i < storyPathParts.length; i++) {
-		const pathPart = storyPathParts[i]
-		const isFolder = !pathPart.includes('.vue')
-
-		if (!currentTree.children && isFolder) {
-			currentTree.children = []
-		}
-
-		let folder = currentTree.children?.find(child => child.name === pathPart)
-		if (!folder && isFolder) {
-			folder = {
-				name: pathPart,
-				children: [],
-			}
-			if (currentTree.children) {
-				currentTree.children.push(folder)
-			}
-		} else if (!isFolder) {
-			const storyEntr = {
-				name: storyTitle,
-				path: storyPath,
-			}
-
-			if (!currentTree.children) {
-				currentTree.children = []
-			}
-			currentTree.children!.push(storyEntr)
-		}
-
-		if (isFolder && folder) {
-			currentTree = folder
-		}
-	}
-
-	stories.value.push({
-		name: storyTitle,
-		path: storyPath,
-	})
-}
-
-const computedStoryComponent = computed(() => {
-	if (!selectedStory.value?.path) {
-		return
-	}
-	const storyComponent = defineAsyncComponent(storyModules[selectedStory.value.path])
-
-	return storyComponent
+const computedComponent = computed(() => {
+	return selectedStory.value?.component
 })
 
-async function setComponent(story: IStory) {
+function setSelectedStory(story: IStory) {
 	selectedStory.value = story
+	if (story.isVariant) {
+		router.push(`?component=${story.parent.name}&variant=${story.name}`)
+	}
+
 	router.push(`?component=${story.name}`)
+}
+
+function setSelectedVariant(story: IStory) {
+	selectedStory.value = story
+	router.push(`?component=${story.name}&variant=${story.variantName}`)
 }
 
 const openTree = ref(true)
 
 onMounted(() => {
 	document.documentElement.classList.add('nxs')
-	const story = stories.value.find(story => story.name === route.query.component)
+	const story = stories.find(story => story.name === route.query.component)
+
+	if (route.query.component && route.query.variant) {
+		const variant = story?.variants?.find(variant => variant.name === route.query.variant)
+		if (variant) {
+			setSelectedVariant(variant)
+			return
+		}
+	}
 
 	if (story) {
-		setComponent(story)
+		setSelectedStory(story)
 		return
 	}
 
-	setComponent(stories.value[0])
+	setSelectedStory(stories[0])
 })
 
 onUnmounted(() => {
@@ -135,7 +108,8 @@ function resize(e: MouseEvent) {
           :item="storiesTree"
           :open="openTree"
           :level="0"
-          @select-file="setComponent"
+          @selectStory="setSelectedStory"
+          @selectVariant="setSelectedVariant"
         />
       </ul>
     </aside>
@@ -151,10 +125,10 @@ function resize(e: MouseEvent) {
         name="fade"
       >
         <div
-          v-if="computedStoryComponent"
+          v-if="computedComponent"
           class="nxs:space-y-4 lg:nxs-space-y-16"
         >
-          <Component :is="computedStoryComponent" />
+          <Component :is="computedComponent" />
         </div>
       </Transition>
     </main>

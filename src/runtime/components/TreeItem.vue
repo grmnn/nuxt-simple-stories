@@ -10,8 +10,10 @@ const props = defineProps<{
 }>()
 
 const emits = defineEmits<{
-	(e: 'selectFile', item: any): void
+	(event: 'selectStory', story: IStory): void
+	(event: 'selectVariant', variant: IStory): void
 }>()
+
 const route = useRoute()
 const isOpen = ref(true)
 
@@ -24,50 +26,71 @@ const computedSpacingStep = computed(() => {
 
 	return {
 		[spacing]: true,
-		'nxs-bg-neutral-800': props.activeFile === props.item.name,
 	}
 })
 
-function toggle() {
+function onTreeItemClick() {
 	if (isFolder.value) {
 		isOpen.value = !isOpen.value
-	} else {
-		emits('selectFile', props.item)
+		return
 	}
+
+	console.log(props.item)
+	emits('selectStory', props.item)
 }
 
-function onSelectStory(story: IStory) {
-	emits('selectFile', story)
+function onSelectVariant(variant: IStory) {
+	console.log(variant)
+	emits('selectVariant', variant)
 }
 </script>
 
 <template>
   <li>
-    <div
-      v-if="item.name"
-      :class="computedSpacingStep"
-      class="nxs-flex nxs-cursor-pointer nxs-select-none nxs-items-center nxs-gap-1 nxs-py-1.5 hover:nxs-bg-neutral-600"
-      @click="toggle"
-    >
-      <TreeItemIcon
-        :is-folder="isFolder"
-        :is-open="isOpen"
-      />
-      <span class="nxs-ml-1"> {{ item.name }}</span>
-    </div>
-    <ul
-      v-show="isOpen"
-      v-if="isFolder"
-    >
-      <TreeItem
-        v-for="(child, index) in item.children"
-        :key="index"
-        :level="level + 1"
-        :class="`${level + 1}`"
-        :item="child"
-        :active-file="route.query.component as string"
-        @select-file="onSelectStory"
-      />
-    </ul>
+    <ClientOnly>
+      <div
+        v-if="item.name"
+        :class="{
+          'nxs-bg-neutral-800': props.activeFile === props.item.name,
+          ...computedSpacingStep,
+        }"
+        class="nxs-flex nxs-cursor-pointer nxs-select-none nxs-items-center nxs-gap-1 nxs-py-1.5 hover:nxs-bg-neutral-600"
+        @click="onTreeItemClick"
+      >
+        <TreeItemIcon
+          :is-folder="isFolder"
+          :is-open="isOpen"
+        />
+        <span class="nxs-ml-1"> {{ item.name }}</span>
+      </div>
+      <ul
+        v-if="item.variants && item.variants.length"
+        :class="computedSpacingStep"
+      >
+        <li
+          v-for="variant of item.variants"
+          :key="variant.variantName"
+          class="nxs-flex nxs-items-center"
+          @click="onSelectVariant(variant)"
+        >
+          <VueIcon /> <span class="nxs-ml-1"> {{ variant.variantName }}</span>
+        </li>
+      </ul>
+      <ul
+        v-show="isOpen"
+        v-if="isFolder"
+      >
+        <TreeItem
+          v-for="(child, index) in item.children"
+          :key="index"
+          :level="level + 1"
+          :class="`${level + 1}`"
+          :item="child"
+          :active-file="route.query.component"
+          @selectStory="emits('selectStory', $event)"
+          @selectVariant="emits('selectVariant', $event)"
+        />
+      </ul>
+    </ClientOnly>
   </li>
 </template>

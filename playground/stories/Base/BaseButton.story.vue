@@ -1,10 +1,18 @@
+<script setup lang="ts">
+import { ref } from '#imports'
+
+const msg = ref('hello')
+</script>
+
 <template>
-  <Variant title="Base Button">
+  <Variant title="Primary Button">
     <BaseButton variant="primary">
       Primary Button
     </BaseButton>
+  </Variant>
+  <Variant title="Secondary Button">
     <BaseButton variant="secondary">
-      Secondary Buttton
+      {{ msg }}
     </BaseButton>
   </Variant>
 </template>

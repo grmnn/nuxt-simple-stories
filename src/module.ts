@@ -1,5 +1,5 @@
 import { fileURLToPath } from 'node:url'
-import { addComponentsDir, addLayout, addTemplate, createResolver, defineNuxtModule, extendPages } from '@nuxt/kit'
+import { addComponentsDir, addImportsDir, addLayout, addTemplate, createResolver, defineNuxtModule, extendPages } from '@nuxt/kit'
 
 export interface ModuleOptions {
 	/**
@@ -54,6 +54,8 @@ export default defineNuxtModule<ModuleOptions>({
 				file: resolver.resolve(pagesDir, 'story.vue'),
 			})
 		})
+
+		addImportsDir(resolver.resolve('runtime/composables'))
 
 		// @ts-expect-error - devtools hook
 		nuxt.hook('devtools:customTabs', (tabs: object[]) => {
