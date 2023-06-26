@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.0.11
+
+[compare changes](https://github.com/grmnn/nuxt-simple-stories/compare/v0.0.10...v0.0.11)
+
+
+### 🩹 Fixes
+
+  - Lint ([8c9e21f](https://github.com/grmnn/nuxt-simple-stories/commit/8c9e21f))
+
+### ❤️  Contributors
+
+- Grmnn <grmnn@pm.me>
+
 ## v0.0.10
 
 [compare changes](https://github.com/grmnn/nuxt-simple-stories/compare/v0.0.9...v0.0.10)
