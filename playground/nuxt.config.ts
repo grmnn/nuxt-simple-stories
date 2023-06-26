@@ -7,9 +7,15 @@ export default defineNuxtConfig({
 	},
 	modules: [
 		'../src/module',
+		'@vueuse/nuxt',
+		'@pinia/nuxt',
+		'nuxt-icon',
 	],
 	simpleStories: {
 		devOnly: false,
 	},
 	ssr: false,
+	imports: {
+		autoImport: true,
+	},
 })

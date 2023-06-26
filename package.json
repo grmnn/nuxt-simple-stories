@@ -28,18 +28,18 @@
     "dev": "concurrently --kill-others \"pnpm run dev:tailwind --watch\" \"NUXT_MODULE_ENV=development nuxi dev playground\""
   },
   "dependencies": {
-    "@nuxt/kit": "^3.5.3"
+    "@nuxt/kit": "^3.6.1"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.5",
     "@nuxt/module-builder": "^0.4.0",
-    "@nuxt/schema": "^3.5.3",
-    "@nuxt/test-utils": "^3.5.3",
-    "@types/node": "^20.2.5",
+    "@nuxt/schema": "^3.6.1",
+    "@nuxt/test-utils": "^3.6.1",
+    "@types/node": "^20.3.2",
     "changelogen": "^0.5.3",
-    "concurrently": "^8.1.0",
-    "eslint": "^8.42.0",
-    "nuxt": "^3.5.3",
+    "concurrently": "^8.2.0",
+    "eslint": "^8.43.0",
+    "nuxt": "^3.6.1",
     "tailwindcss": "^3.3.2",
     "typescript": "5.0.4"
   }
