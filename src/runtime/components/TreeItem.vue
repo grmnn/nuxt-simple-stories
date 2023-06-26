@@ -86,8 +86,8 @@ function onSelectVariant(variant: IStory) {
         :class="`${level + 1}`"
         :item="child"
         :active-file="route.query.component"
-        @selectStory="emits('selectStory', $event)"
-        @selectVariant="emits('selectVariant', $event)"
+        @select-story="emits('selectStory', $event)"
+        @select-variant="emits('selectVariant', $event)"
       />
     </ul>
   </li>
