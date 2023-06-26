@@ -108,8 +108,8 @@ function resize(e: MouseEvent) {
           :item="storiesTree"
           :open="openTree"
           :level="0"
-          @selectStory="setSelectedStory"
-          @selectVariant="setSelectedVariant"
+          @select-story="setSelectedStory"
+          @select-variant="setSelectedVariant"
         />
       </ul>
     </aside>

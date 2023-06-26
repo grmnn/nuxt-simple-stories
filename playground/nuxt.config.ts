@@ -4,7 +4,6 @@ export default defineNuxtConfig({
 	],
 	modules: [
 		'../src/module',
-		'@nuxt/devtools',
 	],
 	simpleStories: {
 		devOnly: false,

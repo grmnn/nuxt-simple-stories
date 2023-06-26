@@ -5,10 +5,6 @@ const props = defineProps<{
 	isComponent?: boolean
 }>()
 
-function generateRandomHexColor() {
-	return `#${Math.floor(Math.random() * 16777215).toString(16)}`
-}
-
 const computedTopColor = computed(() => props.isComponent ? '#35495e' : '#3d3d3d')
 const computedBottomColor = computed(() => props.isComponent ? '#41b883' : '#adadad')
 </script>
