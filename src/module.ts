@@ -24,11 +24,7 @@ export default defineNuxtModule<ModuleOptions>({
 			return
 		const resolver = createResolver(import.meta.url)
 
-		if (process.env.NUXT_MODULE_ENV === 'development') {
-			nuxt.options.css.push(resolver.resolve('./dev.css'))
-		} else {
-			nuxt.options.css.push(resolver.resolve('./runtime/prod.css'))
-		}
+		nuxt.options.css.push(resolver.resolve('./runtime/styles.css'))
 
 		const componentsDir = fileURLToPath(new URL('./runtime/components', import.meta.url))
 

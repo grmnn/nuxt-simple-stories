@@ -69,7 +69,7 @@ function onSelectVariant(variant: IStory) {
       <li
         v-for="variant of item.variants"
         :key="variant.variantName"
-        class="nxs-flex nxs-items-center"
+        class="nxs-flex nxs-items-cente"
         @click="onSelectVariant(variant)"
       >
         <VueIcon /> <span class="nxs-ml-1"> {{ variant.variantName }}</span>

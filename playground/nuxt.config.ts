@@ -1,9 +1,17 @@
+import tailwindPlaygroundConfig from './tailwind.config'
+
 export default defineNuxtConfig({
 	css: [
-		'~/assets/playground.css',
+		'~/assets/styles.css',
 	],
 	experimental: {
 		payloadExtraction: false,
+	},
+	postcss: {
+		plugins: {
+			tailwindcss: tailwindPlaygroundConfig,
+			autoprefixer: {},
+		},
 	},
 	modules: [
 		'../src/module',
