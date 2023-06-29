@@ -200,7 +200,7 @@ function onChange(errorKey: keyof IAuthFormData) {
       >
         Don't have an account?
         <NuxtLink
-          to="/register"
+          to="#auth"
           class="text-white"
         >
           Sign up
@@ -212,7 +212,7 @@ function onChange(errorKey: keyof IAuthFormData) {
       >
         Have an account?
         <NuxtLink
-          to="/login"
+          to="#auth"
           class="text-white"
         >
           Sign in

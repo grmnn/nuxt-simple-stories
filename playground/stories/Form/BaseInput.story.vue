@@ -3,10 +3,7 @@ const inputValue = ref('Disabled with value')
 </script>
 
 <template>
-  <Variant
-    class="bg-gray-0"
-    title="Sizes"
-  >
+  <Variant title="Sizes">
     <BaseInput
       placeholder="Small"
       small
@@ -14,10 +11,7 @@ const inputValue = ref('Disabled with value')
     <BaseInput placeholder="Default" />
   </Variant>
 
-  <Variant
-    class="bg-gray-0"
-    title="Sizes, Prefix and Suffix"
-  >
+  <Variant title="Sizes, Prefix and Suffix">
     <BaseInput
       placeholder="Small Prefix"
       small
@@ -34,10 +28,7 @@ const inputValue = ref('Disabled with value')
     />
   </Variant>
 
-  <Variant
-    class="bg-gray-0"
-    title="Disabled"
-  >
+  <Variant title="Disabled">
     <BaseInput
       placeholder="Disabled icon"
       small
@@ -57,11 +48,7 @@ const inputValue = ref('Disabled with value')
     />
   </Variant>
 
-  <Variant
-    class="bg-gray-0"
-    title="Error"
-    type="col"
-  >
+  <Variant title="Error">
     <BaseInput
       placeholder="E-Mail"
       prefix="upload"

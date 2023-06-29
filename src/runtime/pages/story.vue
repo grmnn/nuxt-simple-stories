@@ -42,9 +42,13 @@ function setSelectedVariant(story: IStory) {
 }
 
 const openTree = ref(true)
-
+const showIntro = ref(false)
 onMounted(() => {
 	document.documentElement.classList.add('nxs')
+	if (!stories || stories.length === 0) {
+		showIntro.value = true
+		return
+	}
 	const story = stories.find(story => story.name === route.query.component)
 
 	if (route.query.component && route.query.variant) {
@@ -129,6 +133,24 @@ function resize(e: MouseEvent) {
           class="nxs:space-y-4 lg:nxs-space-y-16"
         >
           <Component :is="computedComponent" />
+        </div>
+
+        <div
+          v-else
+          class="m-auto"
+        >
+          <ul>
+            <h1>No stories found.</h1>
+
+            <ul>
+              <li>
+                Create a <code>stories</code> folder in your root.
+              </li>
+              <li>
+                Create your first story component in <code>stories/MyComponent.stories.vue</code>
+              </li>
+            </ul>
+          </ul>
         </div>
       </Transition>
     </main>

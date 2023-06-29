@@ -5,7 +5,6 @@
 <template>
   <Variant
     title="Default"
-    class="bg-gray-0"
   >
     <BaseButton variant="primary">
       Primary
@@ -21,7 +20,6 @@
 
   <Variant
     title="Sizes"
-    class="bg-gray-0"
   >
     <BaseButton>Default Button</BaseButton>
 
@@ -42,7 +40,6 @@
 
   <Variant
     title="Prefix and Suffix"
-    class="bg-gray-0"
   >
     <BaseButton icon="upload">
       Prefix Icon
@@ -83,7 +80,6 @@
 
   <Variant
     title="Icon Only"
-    class="bg-gray-0"
   >
     <BaseButton icon="delete" />
 
@@ -105,7 +101,6 @@
 
   <Variant
     title="Types"
-    class="bg-gray-0"
   >
     <BaseButton>Primary Button</BaseButton>
     <BaseButton variant="secondary">
@@ -119,7 +114,6 @@
 
   <Variant
     title="Disabled"
-    class="bg-gray-0"
   >
     <BaseButton
       small
