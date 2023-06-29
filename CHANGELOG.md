@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.0.12
+
+[compare changes](https://github.com/grmnn/nuxt-simple-stories/compare/v0.0.11...v0.0.12)
+
+
+### 🩹 Fixes
+
+  - Idk ([3b6b714](https://github.com/grmnn/nuxt-simple-stories/commit/3b6b714))
+  - Tailwind configs ([52e8bf6](https://github.com/grmnn/nuxt-simple-stories/commit/52e8bf6))
+  - Only keep basic playground components and fix playground dependencies ([34248e4](https://github.com/grmnn/nuxt-simple-stories/commit/34248e4))
+  - Use correct components in auth form ([9633664](https://github.com/grmnn/nuxt-simple-stories/commit/9633664))
+
+### ❤️  Contributors
+
+- Grmnn <grmnn@pm.me>
+
 ## v0.0.11
 
 [compare changes](https://github.com/grmnn/nuxt-simple-stories/compare/v0.0.10...v0.0.11)
