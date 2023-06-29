@@ -93,7 +93,7 @@ async function handleLogin() {
 	const validPassword = validatePassword(password)
 
 	if (validEmail && validPassword) {
-		await authStore.signIn({ email, password })
+		console.log('await authStore.signIn({ email, password })')
 	}
 }
 
@@ -110,7 +110,7 @@ async function handleRegister() {
 		formData.value.email.error = ''
 		formData.value.password.error = ''
 		formData.value.confirmPassword.error = ''
-		await authStore.signUp({ email, password })
+		console.log('await authStore.signUp({ email, password })')
 	}
 }
 
@@ -145,7 +145,7 @@ function onChange(errorKey: keyof IAuthFormData) {
         @submit.prevent="onSubmit"
       >
         <TransitionGroup name="list">
-          <JInput
+          <BaseInput
             key="email"
             v-model="formData.email.data"
             class="mb-5"
@@ -157,7 +157,7 @@ function onChange(errorKey: keyof IAuthFormData) {
             :error-message="formData.email.error"
             @change="onChange('email')"
           />
-          <JInput
+          <BaseInput
             key="password"
             v-model="formData.password.data"
             :class="isLogin ? 'mb-12' : 'mb-5'"
@@ -168,7 +168,7 @@ function onChange(errorKey: keyof IAuthFormData) {
             :error-message="formData.password.error"
             @change="onChange('password')"
           />
-          <JInput
+          <BaseInput
             v-if="!isLogin"
             key="password"
             v-model="formData.confirmPassword.data"
@@ -182,14 +182,14 @@ function onChange(errorKey: keyof IAuthFormData) {
             @change="onChange('confirmPassword')"
           />
 
-          <JButton
+          <BaseButton
             key="button"
             variant="secondary"
             type="submit"
             :loading="isLoading"
           >
             {{ isLogin ? 'Log Into Your Account' : 'Create Account' }}
-          </JButton>
+          </BaseButton>
         </TransitionGroup>
       </form>
     </div>
