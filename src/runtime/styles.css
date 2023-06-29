@@ -196,6 +196,26 @@
   padding-top: 2rem;
 }
 
+.nxs-pl-3 {
+  padding-left: 0.75rem;
+}
+
+.nxs-pl-6 {
+  padding-left: 1.5rem;
+}
+
+.nxs-pl-12 {
+  padding-left: 3rem;
+}
+
+.nxs-pl-2 {
+  padding-left: 0.5rem;
+}
+
+.nxs-pl-8 {
+  padding-left: 2rem;
+}
+
 .nxs-text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;

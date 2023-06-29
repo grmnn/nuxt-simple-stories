@@ -25,9 +25,9 @@ const isFolder = computed(() => {
 const hasVariants = computed(() => {
 	return props.item.variants?.length > 0
 })
-
+const treeSpacing = ['nxs-pl-0', 'nxs-pl-2', 'nxs-pl-4', 'nxs-pl-6', 'nxs-pl-8', 'nxs-pl-10']
 const computedTreeSpacing = computed(() => {
-	const spacing = ['nxs-pl-0', 'nxs-pl-4', 'nxs-pl-10', 'nxs-pl-16'][props.level]
+	const spacing = treeSpacing[props.level]
 
 	return {
 		[spacing]: true,
@@ -44,7 +44,7 @@ function activeClass(variant: IStory) {
 }
 
 const computedVariantItemClass = computed(() => {
-	const spacing = ['nxs-pl-0', 'nxs-pl-4', 'nxs-pl-10', 'nxs-pl-16'][props.level + 1]
+	const spacing = treeSpacing[props.level + 1]
 
 	return {
 		[spacing]: true,
