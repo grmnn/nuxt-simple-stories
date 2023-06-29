@@ -7,96 +7,96 @@
     title="Default"
     class="bg-gray-0"
   >
-    <JButton variant="primary">
+    <BaseButton variant="primary">
       Primary
-    </JButton>
+    </BaseButton>
 
-    <JButton
-      to="/page"
+    <BaseButton
+      to="#page"
       variant="secondary"
     >
       Secondary
-    </JButton>
+    </BaseButton>
   </Variant>
 
   <Variant
     title="Sizes"
     class="bg-gray-0"
   >
-    <JButton>Default Button</JButton>
+    <BaseButton>Default Button</BaseButton>
 
-    <JButton small>
+    <BaseButton small>
       Small Button
-    </JButton>
-    <JButton variant="secondary">
+    </BaseButton>
+    <BaseButton variant="secondary">
       Default Button
-    </JButton>
+    </BaseButton>
 
-    <JButton
+    <BaseButton
       small
       variant="secondary"
     >
       Small Button
-    </JButton>
+    </BaseButton>
   </Variant>
 
   <Variant
     title="Prefix and Suffix"
     class="bg-gray-0"
   >
-    <JButton icon="upload">
+    <BaseButton icon="upload">
       Prefix Icon
-    </JButton>
+    </BaseButton>
 
-    <JButton icon-right="upload">
+    <BaseButton icon-right="upload">
       Suffix Icon
-    </JButton>
-    <JButton
+    </BaseButton>
+    <BaseButton
       icon="upload"
       icon-right="upload"
       small
     >
       Pre & Suffix Icon
-    </JButton>
-    <JButton
+    </BaseButton>
+    <BaseButton
       icon="upload"
       variant="secondary"
     >
       Prefix Icon
-    </JButton>
+    </BaseButton>
 
-    <JButton
+    <BaseButton
       icon-right="upload"
       variant="secondary"
     >
       Suffix Icon
-    </JButton>
-    <JButton
+    </BaseButton>
+    <BaseButton
       icon="upload"
       icon-right="upload"
       variant="secondary"
       small
     >
       Pre & Suffix Icon
-    </JButton>
+    </BaseButton>
   </Variant>
 
   <Variant
     title="Icon Only"
     class="bg-gray-0"
   >
-    <JButton icon="delete" />
+    <BaseButton icon="delete" />
 
-    <JButton
+    <BaseButton
       icon="delete"
       small
     />
-    <JButton
+    <BaseButton
       icon="delete"
       variant="secondary"
     />
 
-    <JButton
+    <BaseButton
       icon="delete"
       variant="secondary"
       small
@@ -107,41 +107,41 @@
     title="Types"
     class="bg-gray-0"
   >
-    <JButton>Primary Button</JButton>
-    <JButton variant="secondary">
+    <BaseButton>Primary Button</BaseButton>
+    <BaseButton variant="secondary">
       Secondary Button
-    </JButton>
+    </BaseButton>
 
-    <JButton variant="error">
+    <BaseButton variant="error">
       Error Button
-    </JButton>
+    </BaseButton>
   </Variant>
 
   <Variant
     title="Disabled"
     class="bg-gray-0"
   >
-    <JButton
+    <BaseButton
       small
       :disabled="true"
     >
       Confirm
-    </JButton>
-    <JButton :disabled="true">
+    </BaseButton>
+    <BaseButton :disabled="true">
       Confirm
-    </JButton>
-    <JButton
+    </BaseButton>
+    <BaseButton
       small
       :disabled="true"
       variant="secondary"
     >
       Confirm
-    </JButton>
-    <JButton
+    </BaseButton>
+    <BaseButton
       :disabled="true"
       variant="secondary"
     >
       Confirm
-    </JButton>
+    </BaseButton>
   </Variant>
 </template>

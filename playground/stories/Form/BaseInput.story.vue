@@ -7,27 +7,27 @@ const inputValue = ref('Disabled with value')
     class="bg-gray-0"
     title="Sizes"
   >
-    <JInput
+    <BaseInput
       placeholder="Small"
       small
     />
-    <JInput placeholder="Default" />
+    <BaseInput placeholder="Default" />
   </Variant>
 
   <Variant
     class="bg-gray-0"
     title="Sizes, Prefix and Suffix"
   >
-    <JInput
+    <BaseInput
       placeholder="Small Prefix"
       small
       prefix="upload"
     />
-    <JInput
+    <BaseInput
       placeholder="Default Suffix"
       suffix="upload"
     />
-    <JInput
+    <BaseInput
       placeholder="Default Prefix & Suffix"
       prefix="upload"
       suffix="upload"
@@ -38,17 +38,17 @@ const inputValue = ref('Disabled with value')
     class="bg-gray-0"
     title="Disabled"
   >
-    <JInput
+    <BaseInput
       placeholder="Disabled icon"
       small
       prefix="upload"
       :disabled="true"
     />
-    <JInput
+    <BaseInput
       placeholder="Disabled no icon"
       :disabled="true"
     />
-    <JInput
+    <BaseInput
       v-model="inputValue"
       placeholder="Disabled with value"
       prefix="upload"
@@ -62,7 +62,7 @@ const inputValue = ref('Disabled with value')
     title="Error"
     type="col"
   >
-    <JInput
+    <BaseInput
       placeholder="E-Mail"
       prefix="upload"
       error-message="Please use a valid e-mail."

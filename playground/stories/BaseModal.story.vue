@@ -14,13 +14,13 @@ function onConfirmfullHeightModalOpen() {
 
 <template>
   <Variant title="Default">
-    <JButton
+    <BaseButton
       variant="primary"
       @click="defaultModalOpen = true"
     >
       Deactivate Account
-    </JButton>
-    <JModal
+    </BaseButton>
+    <BaseModal
       v-model="defaultModalOpen"
       title="Deactivate your account"
     >
@@ -34,30 +34,30 @@ function onConfirmfullHeightModalOpen() {
       </template>
 
       <template #footer>
-        <JButton
+        <BaseButton
           variant="secondary"
           @click="defaultModalOpen = false"
         >
           Cancel
-        </JButton>
-        <JButton
+        </BaseButton>
+        <BaseButton
           variant="error"
           @click="onConfirmDefaultModal"
         >
           Deactivate
-        </JButton>
+        </BaseButton>
       </template>
-    </JModal>
+    </BaseModal>
   </Variant>
 
   <Variant title="Full Height">
-    <JButton
+    <BaseButton
       variant="primary"
       @click="fullHeightModalOpen = true"
     >
       Confirm
-    </JButton>
-    <JModal
+    </BaseButton>
+    <BaseModal
       v-model="fullHeightModalOpen"
       :full-height="true"
     >
@@ -123,40 +123,40 @@ function onConfirmfullHeightModalOpen() {
       </template>
 
       <template #footer>
-        <JButton
+        <BaseButton
           variant="primary"
           @click="onConfirmfullHeightModalOpen"
         >
           Confirm
-        </JButton>
+        </BaseButton>
       </template>
-    </JModal>
+    </BaseModal>
   </Variant>
 
   <Variant title="Unstyled - Default">
-    <JButton
+    <BaseButton
       variant="primary"
       @click="defaultBareModalOpen = true"
     >
       Deactivate Account
-    </JButton>
-    <JModal v-model="defaultBareModalOpen">
+    </BaseButton>
+    <BaseModal v-model="defaultBareModalOpen">
       <h1>Bare Minimum</h1>
-    </JModal>
+    </BaseModal>
   </Variant>
 
   <Variant title="Unstyled - Full Height">
-    <JButton
+    <BaseButton
       variant="primary"
       @click="defaultFullBareModalOpen = true"
     >
       Unstyled Full Height
-    </JButton>
-    <JModal
+    </BaseButton>
+    <BaseModal
       v-model="defaultFullBareModalOpen"
       :full-height="true"
     >
       <h1>Unstyled Full Height</h1>
-    </JModal>
+    </BaseModal>
   </Variant>
 </template>
