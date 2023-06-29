@@ -16,10 +16,10 @@ export async function useStories() {
 				const storyComponent = defineAsyncComponent(storyComponentImport)
 
 				const storyCompomentImport = await storyComponentImport()
-				console.log(storyCompomentImport)
+
 				if (storyCompomentImport?.default?.render) {
 					const r = storyCompomentImport.default.render()
-					console.log(r)
+
 					if (r.children?.length > 1) {
 						for (const variant of r.children) {
 							storyVariants.push({

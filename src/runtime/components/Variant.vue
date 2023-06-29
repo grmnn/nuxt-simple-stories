@@ -17,12 +17,17 @@ const computedShow = computed(() => {
 </script>
 
 <template>
-  <div v-if="computedShow">
-    <h2 class="nxs-mb-4 nxs-text-2xl ">
-      {{ title }} {{ computedShow }}
-    </h2>
+  <div
+    v-if="computedShow"
+    class="nxs-rounded nxs-border nxs-border-neutral-600 "
+  >
+    <header class="nxs-border-b nxs-border-b-neutral-600 nxs-p-4">
+      <h2 class="nxs-text-2xl ">
+        {{ title }}
+      </h2>
+    </header>
     <div
-      class="nxs-flex nxs-w-full nxs-flex-wrap nxs-gap-20 nxs-rounded nxs-border nxs-border-neutral-600 nxs-p-8"
+      class="nxs-flex nxs-w-full nxs-flex-wrap nxs-gap-20 nxs-p-8"
     >
       <slot />
     </div>

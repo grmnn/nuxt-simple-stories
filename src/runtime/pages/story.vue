@@ -21,7 +21,7 @@ const router = useRouter()
 const route = useRoute()
 
 const storyEl = ref<HTMLDivElement>()
-const minWidth = ref(280)
+const minWidth = ref(320)
 
 const computedComponent = computed(() => {
 	return selectedStory.value?.component
@@ -100,7 +100,7 @@ function resize(e: MouseEvent) {
     }"
   >
     <aside
-      class="nxs-h-full nxs-border-r nxs-border-neutral-600 nxs-bg-black nxs-pt-12 nxs-transition lg:nxs-relative lg:nxs-inset-y-auto lg:nxs-left-auto nxs-flex nxs-flex-col"
+      class="nxs-h-full nxs-border-r nxs-border-neutral-800/80 nxs-bg-neutral-900 nxs-pt-12 nxs-transition lg:nxs-relative lg:nxs-inset-y-auto lg:nxs-left-auto nxs-flex nxs-flex-col"
     >
       <ul v-if="computedActiveFile">
         <TreeItem
