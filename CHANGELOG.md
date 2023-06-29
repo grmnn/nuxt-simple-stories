@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.0.13
+
+[compare changes](https://github.com/grmnn/nuxt-simple-stories/compare/v0.0.12...v0.0.13)
+
+
+### 🚀 Enhancements
+
+  - Update sidebar with variants ([3596c7f](https://github.com/grmnn/nuxt-simple-stories/commit/3596c7f))
+
+### ❤️  Contributors
+
+- Grmnn <grmnn@pm.me>
+
 ## v0.0.12
 
 [compare changes](https://github.com/grmnn/nuxt-simple-stories/compare/v0.0.11...v0.0.12)
