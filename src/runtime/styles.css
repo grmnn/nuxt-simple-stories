@@ -176,12 +176,20 @@
   padding-left: 2.5rem;
 }
 
-.nxs-pl-16 {
-  padding-left: 4rem;
+.nxs-pl-2 {
+  padding-left: 0.5rem;
 }
 
 .nxs-pl-4 {
   padding-left: 1rem;
+}
+
+.nxs-pl-6 {
+  padding-left: 1.5rem;
+}
+
+.nxs-pl-8 {
+  padding-left: 2rem;
 }
 
 .nxs-pr-4 {
@@ -194,26 +202,6 @@
 
 .nxs-pt-8 {
   padding-top: 2rem;
-}
-
-.nxs-pl-3 {
-  padding-left: 0.75rem;
-}
-
-.nxs-pl-6 {
-  padding-left: 1.5rem;
-}
-
-.nxs-pl-12 {
-  padding-left: 3rem;
-}
-
-.nxs-pl-2 {
-  padding-left: 0.5rem;
-}
-
-.nxs-pl-8 {
-  padding-left: 2rem;
 }
 
 .nxs-text-2xl {
@@ -257,7 +245,7 @@
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
-body {
+.nxs body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
