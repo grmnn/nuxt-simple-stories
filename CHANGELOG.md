@@ -1,6 +1,25 @@
 # Changelog
 
 
+## v0.0.14
+
+[compare changes](https://github.com/grmnn/nuxt-simple-stories/compare/v0.0.13...v0.0.14)
+
+
+### 🩹 Fixes
+
+  - Adapt tree item spacing ([c61f596](https://github.com/grmnn/nuxt-simple-stories/commit/c61f596))
+  - Apply body styles only to story ([0f80325](https://github.com/grmnn/nuxt-simple-stories/commit/0f80325))
+
+### 🏡 Chore
+
+  - Clean up things ([fc40920](https://github.com/grmnn/nuxt-simple-stories/commit/fc40920))
+  - Update to latest nuxt ([f57dc50](https://github.com/grmnn/nuxt-simple-stories/commit/f57dc50))
+
+### ❤️  Contributors
+
+- Grmnn <grmnn@pm.me>
+
 ## v0.0.13
 
 [compare changes](https://github.com/grmnn/nuxt-simple-stories/compare/v0.0.12...v0.0.13)
