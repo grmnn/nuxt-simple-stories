@@ -1,7 +1,7 @@
 {
   "name": "nuxt-simple-stories",
   "type": "module",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Simple module to work on components on a blank canvas.",
   "license": "MIT",
   "repository": "https://github.com/grmnn/nuxt-simple-stories",

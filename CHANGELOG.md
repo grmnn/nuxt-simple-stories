@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.0.15
+
+[compare changes](https://github.com/grmnn/nuxt-simple-stories/compare/v0.0.14...v0.0.15)
+
+
+### 🩹 Fixes
+
+  - Generate styles ([2d3e5a0](https://github.com/grmnn/nuxt-simple-stories/commit/2d3e5a0))
+
+### ❤️  Contributors
+
+- Grmnn <grmnn@pm.me>
+
 ## v0.0.14
 
 [compare changes](https://github.com/grmnn/nuxt-simple-stories/compare/v0.0.13...v0.0.14)
